@@ -6,6 +6,7 @@
 #define MAX_VERTEX_NUM 5
 #define MAX_ARC_INFO 65535  //最大权值不超过 MAX_ARC_INFO
 #define MIN_ARC_INFO 0      //最小权值不低于 MIN_ARC_INFO
+
 typedef char VertexType;
 typedef int InfoPtr;    //权重
 typedef enum {
