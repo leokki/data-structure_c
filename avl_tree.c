@@ -395,7 +395,7 @@ Avlnode *SearchAvltree(Avltree root, int val) {
 打印平衡二叉树辅助函数
 height 是原二叉树的高度, root 是当前即将打印的(子)二叉树的根结点
 */
-static void DisplayAvltreeInRank(Avltree root, int height) {
+static void PrintAvltreeInRank(Avltree root, int height) {
     if (root == NULL) {
         return;
     }
@@ -403,21 +403,16 @@ static void DisplayAvltreeInRank(Avltree root, int height) {
         printf("    ");
     }
     printf("node: %2d (h%1d)\n", root->val, root->height);
-    DisplayAvltreeInRank(root->right, height+1);
-    DisplayAvltreeInRank(root->left, height+1);
+    PrintAvltreeInRank(root->right, height+1);
+    PrintAvltreeInRank(root->left, height+1);
 }
 /*
 打印平衡二叉树
 root 是二叉树的根结点
 */
-void DisplayAvltree(Avltree root) {
+void PrintAvltree(Avltree root) {
     printf("#平衡二叉树\n");
-    if (root == NULL) {
-        return;
-    }
-    //int height = root->height;
-    //中序遍历
-    DisplayAvltreeInRank(root, 0);
+    PrintAvltreeInRank(root, 0);
 }
 
 int main(void) {
@@ -440,7 +435,7 @@ int main(void) {
     InsertAvltree(&root, 1);
     InsertAvltree(&root, 12);
     DeleteAvltree(&root, 5);
-    DisplayAvltree(root);
+    PrintAvltree(root);
     DeleteAvltree(&root, 4);
     DeleteAvltree(&root, 7);
     DeleteAvltree(&root, 10);
@@ -449,7 +444,7 @@ int main(void) {
     DeleteAvltree(&root, 6);
     DeleteAvltree(&root, 3);
     DeleteAvltree(&root, 1);
-    DisplayAvltree(root);
+    PrintAvltree(root);
     DestoryAvltree(&root);////////////////////////
     return 0;
 }
